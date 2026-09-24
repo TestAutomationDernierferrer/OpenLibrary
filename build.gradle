@@ -1,0 +1,22 @@
+plugins {
+    id 'groovy'
+}
+repositories {
+    mavenCentral()
+}
+// Versiones en un solo sitio para que sea fácil actualizarlas
+ext {
+    groovyVersion = '4.0.24'
+}
+dependencies {
+// Groovy (lenguaje de los tests)
+    testImplementation "org.apache.groovy:groovy:$groovyVersion"
+}
+// Leer los ficheros .groovy como UTF-8 (evita problemas con acentos en Windows)
+compileTestGroovy {
+    options.encoding = 'UTF-8'
+    groovyOptions.encoding = 'UTF-8'
+}
+test {
+    useJUnitPlatform()
+}

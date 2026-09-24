@@ -7,10 +7,16 @@ repositories {
 // Versiones en un solo sitio para que sea fácil actualizarlas
 ext {
     groovyVersion = '4.0.24'
+    cucumberVersion = '7.20.1'
+    junitPlatformSuite = '1.11.3'
 }
 dependencies {
 // Groovy (lenguaje de los tests)
     testImplementation "org.apache.groovy:groovy:$groovyVersion"
+// Cucumber ejecutado sobre JUnit 5 (JUnit Platform)
+    testImplementation "io.cucumber:cucumber-java:$cucumberVersion"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:$cucumberVersion"
+    testImplementation "org.junit.platform:junit-platform-suite:$junitPlatformSuite"
 }
 // Leer los ficheros .groovy como UTF-8 (evita problemas con acentos en Windows)
 compileTestGroovy {
@@ -19,4 +25,10 @@ compileTestGroovy {
 }
 test {
     useJUnitPlatform()
+// Mostrar en consola cada escenario, los println y el error completo
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        showStandardStreams = true
+        exceptionFormat 'full'
+    }
 }

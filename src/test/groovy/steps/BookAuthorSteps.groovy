@@ -1,14 +1,23 @@
 package steps
+import geb.Browser
+import io.cucumber.java.After
+import io.cucumber.java.Before
 import io.cucumber.java.PendingException
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
-/**
- * Step definitions del escenario. Cucumber crea una instancia nueva por escenario,
- * así que los campos de esta clase son la "memoria" de cada ejecución.
- */
+
 class BookAuthorSteps {
-// ---------- WEB ----------
+    Browser browser
+    @Before
+    void openBrowser() {
+        browser = new Browser()
+    }
+    @After
+    void closeBrowser() {
+        browser?.quit()
+    }
+  // ---------- WEB ----------
     @Given("user goes to the OpenLibrary page")
     void userGoesToOpenLibrary() {
         throw new PendingException()

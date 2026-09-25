@@ -6,6 +6,9 @@ import io.cucumber.java.PendingException
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import pages.AdvancedSearchPage
+import pages.HomePage
+import pages.SearchResultsPage
 
 class BookAuthorSteps {
     Browser browser
@@ -17,18 +20,20 @@ class BookAuthorSteps {
     void closeBrowser() {
         browser?.quit()
     }
-  // ---------- WEB ----------
+// ---------- WEB ----------
     @Given("user goes to the OpenLibrary page")
     void userGoesToOpenLibrary() {
-        throw new PendingException()
+        browser.to(HomePage)
     }
     @Given("user sets website in English")
     void userSetsWebsiteInEnglish() {
-        throw new PendingException()
+        browser.page(HomePage).setLanguageToEnglish()
     }
     @When("user searches using Title option for book {string}")
     void userSearchesByTitle(String bookTitle) {
-        throw new PendingException()
+        browser.to(AdvancedSearchPage)
+        browser.page(AdvancedSearchPage).searchByTitle(bookTitle)
+        browser.at(SearchResultsPage)
     }
     @When("user chooses book published in {int}")
     void userChoosesBookPublishedIn(int year) {

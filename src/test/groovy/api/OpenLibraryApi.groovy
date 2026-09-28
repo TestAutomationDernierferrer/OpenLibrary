@@ -12,6 +12,14 @@ class OpenLibraryApi {
                 .then()
                 .statusCode(200)
                 .extract().path("authors[0].author.key")
-         return authorName
+        String authorName = given()
+                .baseUri(BASE_URL)
+                .header("User-Agent", "openlibrary-acceptance-tests (derniernaim2@gmail.com)")
+                .when()
+                .get("${authorKey}.json")
+                .then()
+                .statusCode(200)
+                .extract().path("name")
+        return authorName
     }
 }

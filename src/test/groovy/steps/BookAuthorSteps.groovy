@@ -12,10 +12,6 @@ import pages.BookPage
 import pages.HomePage
 import pages.SearchResultsPage
 
-/**
- * Step definitions del escenario. Cucumber crea una instancia nueva por escenario,
- * así que los campos de esta clase son la "memoria" de cada ejecución.
- */
 class BookAuthorSteps {
 
     Browser browser

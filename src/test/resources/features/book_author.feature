@@ -10,5 +10,5 @@ Feature: Author of a book in OpenLibrary
     And user gets the author from the API
     Then the author from the API matches the author on the book page
     Examples:
-      | bookTitle | publishedYear |
+      | bookTitle             | publishedYear |
       | The Lord of the Rings | 1954 |

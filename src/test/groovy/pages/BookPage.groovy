@@ -1,12 +1,9 @@
 package pages
 import geb.Page
-/**
- * Página de un libro (/works/OL12345W/Titulo).
- */
+
 class BookPage extends Page {
     static at = { waitFor { authorLinks.size() > 0 } }
     static content = {
-// El autor sale dos veces (versión móvil y escritorio); una de ellas está oculta
         authorLinks { $("h2.edition-byline a[itemprop=author]") }
     }
 /** Nombre del autor visible en la página. */

@@ -12,3 +12,4 @@ Feature: Author of a book in OpenLibrary
     Examples:
       | bookTitle             | publishedYear |
       | The Lord of the Rings | 1954 |
+      | Dune                  | 1965 |

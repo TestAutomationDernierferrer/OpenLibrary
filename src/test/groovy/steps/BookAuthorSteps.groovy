@@ -43,7 +43,7 @@ class BookAuthorSteps {
     @When("user searches using Title option for book {string}")
     void userSearchesByTitle(String bookTitle) {
         searchByTitleFromAdvancedSearch(bookTitle)
-        if (!browser.currentUrl.contains("title=")) {
+          if (!browser.currentUrl.contains("title=")) {
             searchByTitleFromAdvancedSearch(bookTitle)
         }
         browser.at(SearchResultsPage)
@@ -54,7 +54,7 @@ class BookAuthorSteps {
         waitForHumanVerificationIfShown()
         browser.at(AdvancedSearchPage)
         browser.page(AdvancedSearchPage).searchByTitle(bookTitle)
-        browser.waitFor { browser.currentUrl.contains("/search?") || browser.currentUrl.contains("/verify_human") }
+            browser.waitFor { browser.currentUrl.contains("/search?") || browser.currentUrl.contains("/verify_human") }
         waitForHumanVerificationIfShown()
     }
 
@@ -66,7 +66,6 @@ class BookAuthorSteps {
         browser.at(BookPage)
     }
 
-    // ---------- Verificación humana de OpenLibrary ----------
 
     private void waitForHumanVerificationIfShown() {
         if (!browser.currentUrl.contains("/verify_human")) {

@@ -1,5 +1,11 @@
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
+import java.util.logging.Level
+import java.util.logging.Logger
+
+// Silenciar el aviso "Unable to find CDP implementation": el test no usa CDP
+Logger.getLogger("org.openqa.selenium.devtools").setLevel(Level.OFF)
+Logger.getLogger("org.openqa.selenium.chromium").setLevel(Level.OFF)
 baseUrl = "https://openlibrary.org/"
 cacheDriver = false
 waiting {

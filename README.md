@@ -20,7 +20,7 @@ I recommend running it **with the browser visible** (see *"Verify you are human"
 
 ```bash
 ./gradlew test -Pheadless=false        # Linux / macOS
-gradlew.bat test -Pheadless=false      # Windows
+./gradlew.bat test -Pheadless=false      # Windows
 ```
 
 Headless (no browser window):
